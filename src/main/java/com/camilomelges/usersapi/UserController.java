@@ -28,13 +28,13 @@ public class UserController {
         return user;
     }
 
-    @PutMapping("/put")
+    @PutMapping("put")
     public Map<String, String> put(@RequestBody Map<String, String> user) {
         user.put("id", RandomStringUtils.randomAlphabetic(1));
         return user;
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public String delete(@PathVariable final String id) {
         return "the id " + " was deleted!";
     }
