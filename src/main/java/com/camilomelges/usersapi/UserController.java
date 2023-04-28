@@ -12,29 +12,30 @@ import java.util.Map;
 @RequestMapping("users")
 public class UserController {
 
-  @GetMapping
-  public List<String> getAll() {
-      return List.of("1","2","3","4");
-  }
+    @GetMapping
+    public List<String> getAll() {
+        return List.of("1", "2", "3", "4");
+    }
 
-  @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    @GetMapping("{id}")
     public String getById(@PathVariable("id") final String id) {
         return id;
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping("post")
     public Map<String, String> post(@RequestBody final Map<String, String> user) {
         user.put("id", RandomStringUtils.randomAlphabetic(1));
         return user;
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
-    public Map<String, String> put(@RequestBody final Map<String, String> user) {
+    @PutMapping("/put")
+    public Map<String, String> put(@RequestBody Map<String, String> user) {
+        user.put("id", RandomStringUtils.randomAlphabetic(1));
         return user;
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("/{id}")
     public String delete(@PathVariable final String id) {
-        return "The id: " + id + " was deleted!";
+        return "the id " + " was deleted!";
     }
 }
