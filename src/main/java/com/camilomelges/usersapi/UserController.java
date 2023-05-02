@@ -22,13 +22,13 @@ public class UserController {
         return id;
     }
 
-    @PostMapping("post")
+    @PostMapping
     public Map<String, String> post(@RequestBody final Map<String, String> user) {
         user.put("id", RandomStringUtils.randomAlphabetic(1));
         return user;
     }
 
-    @PutMapping("put")
+    @PutMapping
     public Map<String, String> put(@RequestBody Map<String, String> user) {
         user.put("id", RandomStringUtils.randomAlphabetic(1));
         return user;
@@ -36,6 +36,6 @@ public class UserController {
 
     @DeleteMapping("{id}")
     public String delete(@PathVariable final String id) {
-        return "the id " + " was deleted!";
+        return "the id " + id + " was deleted!";
     }
 }
